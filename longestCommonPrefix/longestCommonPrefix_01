@@ -1,0 +1,23 @@
+class Solution:
+    def longestCommonPrefix(self, strs: list[str]) -> str:
+        position = 0
+        common_letters = True
+        result = ""        
+        while common_letters:
+            letters_set = set()
+            for string in strs:
+                if len(string) <= position:
+                    common_letters = False
+                    letters_set.clear()
+                    break
+                else:
+                    letters_set.add(string[position])
+            if len(letters_set) != 1:
+                break
+            else:
+                result += next(iter(letters_set))
+            position += 1
+        return result
+       
+sol = Solution()
+print(sol.longestCommonPrefix(["fevc","fevpwsd"]))      
