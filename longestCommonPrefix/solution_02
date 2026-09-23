@@ -1,0 +1,17 @@
+class Solution:
+    def longestCommonPrefix(self, strs: list[str]) -> str:
+
+        if not strs:
+            return ""
+
+        position = 0        
+        while position < len(strs[0]):
+            current_char = strs[0][position]
+            for string in strs[1:]:
+                if position >= len(string) or string[position] != current_char:
+                    return strs[0][:position]
+            position += 1
+
+        return strs[0]
+
+print(Solution().longestCommonPrefix(["fevc","fevctyuè","fevcsqrwiiif"]))      

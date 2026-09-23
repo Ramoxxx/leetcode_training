@@ -18,6 +18,5 @@ class Solution:
                 result += next(iter(letters_set))
             position += 1
         return result
-       
-sol = Solution()
-print(sol.longestCommonPrefix(["fevc","fevpwsd"]))      
+   
+print(Solution().longestCommonPrefix(["fevc","fevpwsd","feq"]))      

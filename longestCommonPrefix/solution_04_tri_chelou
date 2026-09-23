@@ -1,0 +1,10 @@
+class Solution:
+    def longestCommonPrefix(self, strs: list[str]) -> str:
+        first = min(strs)
+        last = max(strs)
+
+        i = 0
+        while i < len(first) and i < len(last) and first[i] == last[i] : i += 1
+
+        return first[:i]
+print(Solution().longestCommonPrefix(["fevc","fevpwsd","feq"]))  
