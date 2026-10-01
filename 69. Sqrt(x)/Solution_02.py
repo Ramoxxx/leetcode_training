@@ -1,16 +1,22 @@
-# TODO : test then continue
 class Solution:
     def mySqrt(self, x: int) -> int:
+        if x < 2:
+            return x        
         left = 1
         right = x // 2
-        while left < right:
-            print(left, right)
-            if left * left == x:
-                return left
+        while left <= right:
+            mid = (left + right) // 2
+            square = mid * mid
+            if square == x:
+                return mid
+            elif square < x:
+                left = mid + 1
             else:
-                left += 1
+                right = mid-1 
+            
         return right
-# param = 5625
-param = 25
+# param = 8
+param = 5625
+# param = 8
 # param = 2
-print("---",Solution().mySqrt(param),sep="\n")
+print("=====",Solution().mySqrt(param),sep="\n",end="\n=====")
