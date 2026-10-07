@@ -1,0 +1,15 @@
+class Solution:
+    def getRow(self, rowIndex: int) -> list[int]:
+        result = []
+        for i in range(0,rowIndex+1):
+            line = []
+            j = 0
+            while j <= i:
+                value = 1
+                if i > 1 and j > 0 and j < i:
+                    value = result[i-1][j-1] + result[i-1][j]
+                line.append(value)
+                j += 1
+            if i == rowIndex:
+                return line
+            result.append(line)
