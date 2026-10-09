@@ -27,7 +27,7 @@ def stringMerge(s:str) -> str :
 print(stringMerge("abc1*kyoo"))
 print(stringMerge("aaa*bbb"))
 print(stringMerge("123hg*aaabb"))
-
+ 
 # int main() 
 # {
 # 	cout << StringMerge("abc1*kyoo") << endl; // akbyco1o
