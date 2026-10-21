@@ -13,13 +13,18 @@ Contract:
 Input is an integer (including negative values). Return a bool.
 
 """
-
+from math import sqrt
 from testkit import check, report
 
 
 def is_power_of_two(n):
-    # TODO: implement
-    pass
+    if n <= 0:
+        return False
+    cpt = 1
+    while cpt < n:
+        cpt *= 2
+    return cpt == n
+    
 
 
 if __name__ == "__main__":

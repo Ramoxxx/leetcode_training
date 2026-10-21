@@ -23,9 +23,19 @@ n >= 1, and at least one version is broken. Only query versions in
 from testkit import check, report
 
 
-def first_broken(n, is_broken):
-    # TODO: implement
-    pass
+def first_broken(n, is_broken):    
+    left = 1
+    right = n
+    while left < right:
+        mid = (left + right) // 2
+        if is_broken(mid):
+            right = mid
+        else:
+            left = mid + 1
+    return left
+
+
+   
 
 
 if __name__ == "__main__":

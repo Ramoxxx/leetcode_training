@@ -21,8 +21,12 @@ from testkit import check, report
 
 
 def is_lucky(n):
-    # TODO: implement
-    pass
+    num = n
+    seen = set()
+    while num not in seen and num > 1:
+        seen.add(num)
+        num = sum(int(val)**2 for val in str(num))
+    return num == 1
 
 
 if __name__ == "__main__":
@@ -33,4 +37,5 @@ if __name__ == "__main__":
     check("four is not", is_lucky(4), False)
     check("hundred is lucky", is_lucky(100), True)
     check('ends in zero', is_lucky(10), True)
+    check('big', is_lucky(9**999), False)
     report()

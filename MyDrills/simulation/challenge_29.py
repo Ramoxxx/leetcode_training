@@ -21,8 +21,28 @@ from testkit import check, report
 
 
 def tick(digits):
-    # TODO: implement
-    pass
+
+    for i in range(len(digits) - 1, -1, -1):
+        if digits[i] < 9:
+            digits[i] += 1
+            return digits
+        digits[i] = 0
+    digits.insert(0,1)
+
+    return digits
+    # result = []
+    # carry = 1 # adds on to total
+    # for i in range(len(digits) - 1, -1, -1):        
+    #     curr_sum = digits[i] + carry
+    #     carry = curr_sum // 10
+    #     result.append(curr_sum % 10)
+    # if carry > 0:
+    #     result.append(carry)
+    # result.reverse()
+    # return result
+
+
+
 
 
 if __name__ == "__main__":

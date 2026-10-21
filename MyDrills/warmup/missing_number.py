@@ -23,8 +23,12 @@ from testkit import check, report
 
 
 def missing_number(nums):
-    # TODO: implement
-    pass
+    nums.sort()
+    nums.append(len(nums)+1)
+    for i in range(0,len(nums)):
+        if i != nums[i]:
+            return i
+    
 
 
 if __name__ == "__main__":

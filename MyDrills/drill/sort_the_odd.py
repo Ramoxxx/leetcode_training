@@ -27,7 +27,7 @@ Return a list; modifying the input is allowed but not required.
 from testkit import check, report
 
 
-def sort_odd(nums):
+def sort_odd(nums):    
     odds = []
     for num in nums:
         if num % 2 != 0:
@@ -38,9 +38,10 @@ def sort_odd(nums):
         if nums[i] % 2 != 0:
             nums[i] = odds[odds_index]
             odds_index += 1
-        
+        else:
+            nums[i] = nums[i]
     return nums
-        
+
 
 
 if __name__ == "__main__":

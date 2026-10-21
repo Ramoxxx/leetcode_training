@@ -31,7 +31,7 @@ from testkit import check, report
 
 def product_except_self(nums):
     left_prod = 1
-    result = [1]*len(nums)
+    result = [1] * len(nums)
     for i in range(len(nums)):
         result[i] = left_prod
         left_prod *= nums[i]
@@ -40,7 +40,6 @@ def product_except_self(nums):
         result[i] *= right_prod
         right_prod *= nums[i]
     return result
-        
 
 
 if __name__ == "__main__":

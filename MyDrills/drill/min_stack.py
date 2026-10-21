@@ -32,24 +32,27 @@ from testkit import check, report
 
 
 class MinStack:
+
+    
     def __init__(self):
-        pass
+        self.minimums = []
+        self.stack = []
 
     def push(self, x):
-        # TODO
-        pass
+        if not self.minimums or x <= self.minimums[-1]:
+            self.minimums.append(x)
+        self.stack.append(x)
 
     def pop(self):
-        # TODO
-        pass
+        if self.minimums and self.minimums[-1] == self.stack[-1]:
+            self.minimums.pop()
+        self.stack.pop()
 
     def top(self):
-        # TODO
-        pass
+        return self.stack[-1]
 
     def get_min(self):
-        # TODO
-        pass
+        return self.minimums[-1] if self.minimums else None
 
 
 if __name__ == "__main__":

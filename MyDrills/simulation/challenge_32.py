@@ -20,8 +20,23 @@ from testkit import check, report
 
 
 def int_sqrt(area):
-    # TODO: implement
-    pass
+    if area < 2:
+        return area
+    left = 2
+    right = area // 2
+
+    while left <= right:
+        mid = (left + right) // 2
+        square = mid * mid
+        if area < square:
+            right = mid - 1
+        elif area > square:
+            left = mid + 1
+        else:
+            return mid    
+
+    return left - 1
+    
 
 
 if __name__ == "__main__":

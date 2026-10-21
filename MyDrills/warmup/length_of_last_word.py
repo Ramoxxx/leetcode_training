@@ -23,9 +23,11 @@ one word. Empty strings and strings made only of spaces are out of scope.
 from testkit import check, report
 
 
-def length_of_last_word(s):
-    # TODO: implement
-    pass
+def length_of_last_word(s):    
+    s = s.strip()
+    last_word = s.split(" ")[-1]
+    return len(last_word)
+    
 
 
 if __name__ == "__main__":

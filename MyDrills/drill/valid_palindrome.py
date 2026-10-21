@@ -34,9 +34,10 @@ def is_palindrome(s):
             right -= 1
         if s[left] != s[right]:
             return False
-        left +=1
+        left += 1
         right -= 1
     return True
+    
 
 
 if __name__ == "__main__":

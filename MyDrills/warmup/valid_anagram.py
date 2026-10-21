@@ -24,8 +24,14 @@ from testkit import check, report
 
 
 def is_anagram(s, t):
-    # TODO: implement
-    pass
+    occs_s = {}
+    for char in s:
+        occs_s[char] = occs_s.get(char,0) + 1
+    occs_t = {}
+    for char in t:
+        occs_t[char] = occs_t.get(char,0) + 1
+    return occs_s == occs_t
+
 
 
 if __name__ == "__main__":

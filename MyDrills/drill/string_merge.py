@@ -23,14 +23,13 @@ from testkit import check, report
 
 
 def string_merge(text):
-    result = []
     splitted = text.split("*")
-    left_part = splitted[0]
-    right_part = splitted[1]
-    for i in range(len(left_part)):
-        result += [left_part[i],right_part[i]]
+    result = [""] * len(splitted[0])
+    for i in range(len(splitted[0])):
+        result[i] = splitted[0][i] + splitted[1][i]
     return "".join(result)
-        
+
+    
 
 
 if __name__ == "__main__":

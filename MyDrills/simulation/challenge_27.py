@@ -22,8 +22,15 @@ from testkit import check, report
 
 
 def squash(text):
-    # TODO: implement
-    pass
+    if not text:
+        return ""
+    stack = []
+    for char in text:
+        if stack and stack[-1] == char:
+            stack.pop()
+        else:
+            stack.append(char)
+    return "".join(stack)
 
 
 if __name__ == "__main__":

@@ -23,11 +23,11 @@ Empty input returns []. Return a list, even for string input.
 from testkit import check, report
 
 
-def unique_in_order(iterable):
+def unique_in_order(iterable):    
     result = []
     for char in iterable:
         if not result or result[-1] != char:
-            result.append(char)
+            result.append(char)     
     return result
 
 

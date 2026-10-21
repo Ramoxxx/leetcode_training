@@ -27,8 +27,18 @@ from testkit import check, report
 
 
 def final_total(ops):
-    # TODO: implement
-    pass
+    stack = []
+    for op in ops:
+        if op.lstrip("-").isnumeric():
+            stack.append(int(op))
+        elif op == "C":
+            stack.pop()
+        elif op == "D":
+            stack.append(2*stack[-1])
+        elif op == "+":
+            stack.append(stack[-1] + stack[-2])
+    return sum(stack)
+    
 
 
 if __name__ == "__main__":

@@ -21,8 +21,14 @@ from testkit import check, report
 
 
 def contains_duplicate(nums):
-    # TODO: implement
-    pass
+    seen = {}
+    for num in nums:
+        seen[num] = seen.get(num,0) + 1
+        if seen[num] > 1:
+            return True
+    return False
+
+
 
 
 if __name__ == "__main__":

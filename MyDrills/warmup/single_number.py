@@ -23,8 +23,12 @@ from testkit import check, report
 
 
 def single_number(nums):
-    # TODO: implement
-    pass
+    result = 0
+    for num in nums:
+        result ^= num
+    return result
+
+
 
 
 if __name__ == "__main__":

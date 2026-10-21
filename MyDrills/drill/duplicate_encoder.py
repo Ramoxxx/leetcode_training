@@ -25,8 +25,15 @@ from testkit import check, report
 
 
 def duplicate_encode(word):
-    # TODO: implement
-    pass
+    word = word.lower()
+    seen_cpt = {}
+    result = [""] * len(word)
+    for char in word:
+        seen_cpt[char] = seen_cpt.get(char,0) + 1
+    for i in range(0,len(word)):
+        result[i] = "(" if seen_cpt.get(word[i]) < 2 else ")"
+    return "".join(result)
+    
 
 
 if __name__ == "__main__":

@@ -20,11 +20,11 @@ from testkit import check, report
 
 
 def is_triangle(a, b, c):
-    if a <= 0 or b <= 0 or c <= 0:
+    if a < 1 or b < 1 or c < 1:
         return False
-    lengths = [a, b, c]
-    lengths.sort()
-    return lengths[0] + lengths[1] > lengths[2]
+    sides = [a,b,c]
+    sides.sort()
+    return sides[0] + sides[1] > sides[2]
 
 
 if __name__ == "__main__":

@@ -26,9 +26,33 @@ Empty lists and invalid window sizes are out of scope. Aim for O(n) time.
 from testkit import check, report
 
 
-def max_distinct_sum(nums, k):
-    # TODO: implement
-    pass
+def max_distinct_sum(nums, k):    
+    max_sum = 0
+    current_sum = 0
+    seen_cpt = {}
+    for right in range(0, len(nums)):
+       
+        enter_num = nums[right]
+        current_sum += enter_num
+        seen_cpt[enter_num] = seen_cpt.get(enter_num,0) + 1
+
+        if right >= k:
+            exit_num = nums[right - k]
+            current_sum -= exit_num
+            seen_cpt[exit_num] = seen_cpt.get(exit_num,0) - 1
+            if seen_cpt[exit_num] <= 0:
+                seen_cpt.pop(exit_num)
+            
+        if right >= k-1:
+          if(len(seen_cpt)) == k:
+              max_sum = max(max_sum,current_sum)
+
+           
+       
+    
+
+    return max_sum
+    
 
 
 if __name__ == "__main__":

@@ -23,10 +23,14 @@ Source: recueil_questions.md, Coderbyte Largest Four.
 from testkit import check, report
 
 
-def largest_four(nums):
-    # TODO: implement
-    pass
-
+def largest_four(nums):    
+    stack = []
+    for num in nums:
+        stack.append(num)
+        stack.sort(reverse=True)
+        if len(stack) > 4:
+            stack.pop()
+    return sum(stack)
 
 if __name__ == "__main__":
     check("duplicates count", largest_four([4, 5, -2, 3, 1, 2, 6, 6]), 21)

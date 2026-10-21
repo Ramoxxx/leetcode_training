@@ -27,24 +27,35 @@ Source: https://www.codewars.com/kata/557e8a141ca1f4caa70000a6
 from testkit import check, report
 
 
-def is_triangle_number(n):
-    print(n, type(n))
-    if (type(n) != int and type(n) != float) or int(n) != n or n < 0:
+def is_triangle_number(n):       
+    if type(n) == float:
+        if(int(n) == n):
+            n = int(n)
+        else:
+            return False    
+    if not type(n) == int or n < 0:
         return False
-    if n == 0:
-        return True
-    left = 1
+    
+    left = 0
     right = n
+    
     while left <= right:
         mid = (left + right) // 2
-        total_row = mid * (mid + 1) // 2
-        if n < total_row:
+        row_total = mid * (mid + 1) // 2
+        if n < row_total:
             right = mid - 1
-        elif n > total_row:
+        elif n > row_total:
             left = mid + 1
-        else:
+        else:        
             return True
-    return left * (left + 1) // 2 == n
+
+    return False
+
+
+        
+    
+
+
 
 
 if __name__ == "__main__":

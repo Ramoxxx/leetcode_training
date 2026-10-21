@@ -21,8 +21,27 @@ from testkit import check, report
 
 
 def locate(tickets, target):
-    # TODO: implement
-    pass
+    left = 0
+    right = len(tickets) - 1
+
+    while left <= right:
+        mid = (left + right) // 2
+        if tickets[mid] == target:
+            return mid
+        if tickets[mid] >= tickets[left]: # left is sorted
+            if target >= tickets[left] and target <= tickets[mid]: # target is in left part
+                right = mid - 1
+            else:
+                left = mid + 1
+        else: # left is not sorted, right must be sorted
+            if target >= tickets[mid] and target <= tickets[right]:
+                left = mid + 1
+            else:
+                right = mid - 1
+
+
+    
+    return - 1
 
 
 if __name__ == "__main__":

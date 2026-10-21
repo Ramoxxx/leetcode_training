@@ -23,8 +23,13 @@ from testkit import check, report
 
 
 def is_pangram(sentence):
-    # TODO: implement
-    pass
+    letters = {*()}
+    for letter in sentence:
+        letters.add(letter)
+        if len(letters) >= 26:
+            return True
+    return False
+
 
 
 if __name__ == "__main__":

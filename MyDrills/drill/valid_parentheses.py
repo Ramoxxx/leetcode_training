@@ -31,17 +31,13 @@ def is_valid(s):
         "}":"{",
     }
     stack = []
-    for char in s:
+    for i,char in enumerate(s):        
         if char in corr:
-            if not stack or stack[-1] != corr.get(char):
+            if not stack or stack.pop() != corr.get(char):
                 return False
-            else:
-                stack.pop()
-        else:
+        else:            
             stack.append(char)
     return not stack
-        
-            
 
 
 if __name__ == "__main__":

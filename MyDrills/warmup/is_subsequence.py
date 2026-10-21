@@ -21,9 +21,17 @@ Comparison is case-sensitive; both strings may be empty. Return a bool.
 from testkit import check, report
 
 
-def is_subsequence(s, t):
-    # TODO: implement
-    pass
+def is_subsequence(s, t):    
+    if len(s) == 0:
+        return True
+    len_to_find = len(s)
+    index_s = 0
+    for letter in t:
+        if letter == s[index_s]:            
+            index_s += 1
+        if index_s == len_to_find:
+            return True
+    return False
 
 
 if __name__ == "__main__":

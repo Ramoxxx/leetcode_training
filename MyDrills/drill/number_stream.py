@@ -25,23 +25,20 @@ from testkit import check, report
 
 
 def number_stream(digits):
-    if len(digits) == 0:
-        return "false"
-    stack = []
-    current_int = int(digits[0])
+    prev = None
+    current_cpt = 0
     for digit in digits:
-        current_int = int(digit)
-        if not stack or stack[-1] == current_int:
-            stack.append(current_int)
-            if len(stack) == current_int:
+        current_digit = int(digit)
+        if prev == current_digit:
+            current_cpt += 1
+            if current_cpt >= current_digit:
                 return "true"
         else:
-            stack = []
-            stack.append(current_int)
+            current_cpt = 1
+        prev = current_digit
+    return "false"     
         
-        
-    return "true" if len(stack) == current_int else "false"
-            
+
 
 
 if __name__ == "__main__":
